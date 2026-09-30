@@ -15,8 +15,8 @@ variable "name_prefix" {
 }
 
 variable "github_owner" {
-  type    = string
-  default = "kalkis"
+  description = "GitHub user or organisation that owns the app repositories. The deploy roles trust only workflows on main in <github_owner>/<repo>."
+  type        = string
 }
 
 variable "callback_repo_name" {

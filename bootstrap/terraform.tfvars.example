@@ -1,6 +1,6 @@
 region                      = "eu-west-1"
 name_prefix                 = "ytbackup"
-github_owner                = "kalkis"
+github_owner                = "<github-user-or-org>"
 callback_repo_name          = "youtube-notification-callback"
 collector_repo_name         = "youtube-metadata-collector"
 create_github_oidc_provider = true
