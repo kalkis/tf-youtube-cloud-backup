@@ -1,0 +1,13 @@
+region                    = "eu-west-1"
+name_prefix               = "ytbackup"
+channel_ids               = ["UCPdaxSov0mgwh77JvjQO2jQ"]
+retention_days            = 28
+max_receive_count         = 5
+api_key_secret_name       = "youtube-data-api"
+hub_secret_version        = 1
+lease_seconds             = 432000
+resubscribe_interval      = "rate(4 days)"
+collector_max_concurrency = 2
+log_retention_days        = 14
+# callback_reserved_concurrency = 5
+# alert_email                   = "<you@example.com>"
