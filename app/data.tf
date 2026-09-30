@@ -6,3 +6,5 @@ data "aws_ecr_repository" "app" {
 data "aws_secretsmanager_secret" "api_key" {
   name = var.api_key_secret_name
 }
+
+data "aws_caller_identity" "current" {}
