@@ -9,7 +9,7 @@ output "github_role_arns" {
 output "github_variables" {
   description = "Repository variables to set in each app repo, keyed by repo name."
   value = {
-    for k, repo in local.repos : repo => {
+    for k, repo in local.repos : repo.name => {
       AWS_REGION           = var.region
       AWS_ROLE_ARN         = aws_iam_role.github[k].arn
       ECR_REPOSITORY       = aws_ecr_repository.app[k].name

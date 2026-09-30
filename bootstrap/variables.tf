@@ -15,8 +15,13 @@ variable "name_prefix" {
 }
 
 variable "github_owner" {
-  description = "GitHub user or organisation that owns the app repositories. The deploy roles trust only workflows on main in <github_owner>/<repo>."
+  description = "GitHub user or organisation that owns the app repositories. The deploy roles trust only workflows on main in these repositories, matched by name and ID (GitHub's immutable OIDC subject claim)."
   type        = string
+}
+
+variable "github_owner_id" {
+  description = "Numeric ID of github_owner (gh api users/<github_owner> --jq .id), part of GitHub's immutable OIDC subject claim."
+  type        = number
 }
 
 variable "callback_repo_name" {
@@ -24,9 +29,19 @@ variable "callback_repo_name" {
   default = "youtube-notification-callback"
 }
 
+variable "callback_repo_id" {
+  description = "Numeric ID of the callback repository (gh api repos/<github_owner>/<callback_repo_name> --jq .id)."
+  type        = number
+}
+
 variable "collector_repo_name" {
   type    = string
   default = "youtube-metadata-collector"
+}
+
+variable "collector_repo_id" {
+  description = "Numeric ID of the collector repository (gh api repos/<github_owner>/<collector_repo_name> --jq .id)."
+  type        = number
 }
 
 variable "create_github_oidc_provider" {

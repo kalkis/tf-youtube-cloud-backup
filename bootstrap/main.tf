@@ -1,7 +1,7 @@
 locals {
   repos = {
-    callback  = var.callback_repo_name
-    collector = var.collector_repo_name
+    callback  = { name = var.callback_repo_name, id = var.callback_repo_id }
+    collector = { name = var.collector_repo_name, id = var.collector_repo_id }
   }
 }
 
@@ -82,7 +82,7 @@ data "aws_iam_policy_document" "github_trust" {
     condition {
       test     = "StringEquals"
       variable = "token.actions.githubusercontent.com:sub"
-      values   = ["repo:${var.github_owner}/${each.value}:ref:refs/heads/main"]
+      values   = ["repo:${var.github_owner}@${var.github_owner_id}/${each.value.name}@${each.value.id}:ref:refs/heads/main"]
     }
   }
 }

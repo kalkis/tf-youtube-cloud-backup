@@ -1,7 +1,10 @@
 region                      = "eu-west-1"
 name_prefix                 = "ytbackup"
 github_owner                = "<github-user-or-org>"
+github_owner_id             = 0
 callback_repo_name          = "youtube-notification-callback"
+callback_repo_id            = 0
 collector_repo_name         = "youtube-metadata-collector"
+collector_repo_id           = 0
 create_github_oidc_provider = true
 ecr_keep_images             = 10
